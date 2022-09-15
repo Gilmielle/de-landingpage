@@ -32,7 +32,7 @@ export function isContactFormValid(data) {
   } else if (contactName.length < 2) {
     result.errors.push({
       name: 'contactName',
-      message: 'Name should have at least 2 symbols',
+      message: 'Should be at least 2 symbols',
     });
   } else {
     result.success.push('contactName');
