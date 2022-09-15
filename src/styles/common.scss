@@ -1,0 +1,249 @@
+@import '_variabiles.scss';
+@import '_fonts.scss';
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+  min-width: 360px;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  min-width: 360px;
+  margin: 0;
+	padding: 0;
+  font-family: 'Gilroy', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  letter-spacing: 0.05em;
+  color: $text;
+}
+
+input {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 213px;
+  max-width: 1366px;
+
+  @media (max-width: 1200px) {
+    padding: 0 50px;
+  }
+
+  &_wide {
+    padding: 0 83px;
+
+    @media (max-width: 1200px) {
+      padding: 0 20px;
+    }
+  }
+}
+
+.btn {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn_primary {
+  display: inline-block;
+  min-width: 220px;
+  padding: 1em;
+  text-align: center;
+  color: $headingInverted;
+  background-color: $btn;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+  }
+
+  &:active:not(:disabled) {
+    opacity: 0.5;
+  }
+}
+
+.logo {
+  display: flex;
+  transition: opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.section-heading {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.28;
+  letter-spacing: 0.05em;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: auto;
+  visibility: hidden;
+
+  &_active {
+    visibility: visible;
+
+    & .modal__container {
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &__table {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &__container {
+    margin: 0 auto;
+    visibility: hidden;
+    opacity: 0;
+	  transform: scale(0.2);
+    transition-property: transform, opacity, visibility;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+  }
+}
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+
+  &__icon rect {
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &:hover rect {
+    fill: $inputBorder;
+  }
+
+  &:active rect {
+    fill: $text;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 1.31em 2.62em;
+  border: 1px solid $inputBorder;
+  border-radius: 10px;
+  color: $heading;
+  transition: background-color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+
+  @media (max-width: 576px) {
+    padding: 1em;
+  }
+
+  &:hover {
+    background: rgba(160, 195, 255, 0.2);
+  }
+
+  &::placeholder {
+    font-size: 100%;
+    line-height: 1.88;
+    letter-spacing: 0.04em;
+    color: $textPlaceholder;
+  }
+}
+
+.js-validate-label {
+  position: relative;
+}
+
+.js-form-error {
+  color: $error;
+}
+
+.validation-error-label {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: $error;
+}
+
+.validation-success {
+  border-color: $success;
+}
+
+.validation-error {
+  border-color: $error;
+}
