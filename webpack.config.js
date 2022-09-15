@@ -16,7 +16,6 @@ module.exports = (env, argv) => {
     entry: './src/index.js',
     output: {
       filename: 'main.js',
-      publicPath: '/',
       clean: true,
     },
     module: {
