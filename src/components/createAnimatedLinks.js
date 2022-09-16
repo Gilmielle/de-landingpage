@@ -1,5 +1,5 @@
 export function createAnimatedLinks() {
-  const animatedLinks = document.querySelectorAll('.card__link');
+  const animatedLinks = document.querySelectorAll('[data-animated-link]');
 
   function addActive(linkArrow) {
     linkArrow.classList.remove('card__link-img_inactive');

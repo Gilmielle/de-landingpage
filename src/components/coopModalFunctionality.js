@@ -1,31 +1,20 @@
+import { disableScroll } from '../utils/disableScroll';
+import { enableScroll } from '../utils/enableScroll';
+
 export function coopModalFunctionality() {
   const coopModal = document.getElementById('coop-modal');
-  const coopModalForm = document.querySelector('.coop-modal__form');
-  const coopModalSuccess = document.querySelector('.coop-modal__success');
+  const coopModalForm = document.getElementById('coop-modal-form');
+  const coopModalSuccess = document.getElementById('coop-modal-success');
   const coopBtn = document.getElementById('coop_btn');
   const closeModalBtn = document.getElementById('close-modal-btn');
   const modalActiveClass = 'modal_active';
-  const modalBackgr = document.querySelector('.modal__cell');
+  const modalBackgr = document.getElementById('modal-background');
 
   function handleClick(evt) {
     if (evt.target === modalBackgr) {
       enableScroll();
       coopModal.classList.remove(modalActiveClass);
     }
-  }
-
-  function disableScroll() {
-    const topScroll = window.pageYOffset || document.documentElement.scrollTop;
-    const leftScroll =
-      window.pageXOffset || document.documentElement.scrollLeft;
-
-    window.onscroll = () => {
-      window.scrollTo(leftScroll, topScroll);
-    };
-  }
-
-  function enableScroll() {
-    window.onscroll = () => {};
   }
 
   function openModal() {

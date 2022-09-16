@@ -3,15 +3,14 @@
 .clients {
   padding-top: 92px;
   padding-bottom: 124px;
-  color: $headingInverted;
-  background-color: $btn;
+  color: var(--headingInverted);
+  background-color: var(--btn);
   border-radius: 200px 0px 0px 0px;
 
   &__container {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    column-gap: 10px;
-    row-gap: 110px;
+    gap: 110px 10px;
 
     @media (max-width: 992px) {
       row-gap: 50px;
@@ -25,7 +24,7 @@
   &__text {
     margin: 0;
     max-width: 540px;
-    color: $textInverted;
+    color: var(--textInverted);
   }
 }
 
@@ -50,20 +49,20 @@
     line-height: 2.3;
     letter-spacing: 0.02em;
     text-align: center;
-    color: $textInvertedDarker;
-    background-color: $btn;
+    color: var(--textInvertedDarker);
+    background-color: var(--btn);
 
     &_more {
       position: relative;
-      background-color: $text;
+      background-color: var(--text);
       transition: background-color 0.3s ease-in-out;
 
       &:hover {
-        background-color: $heading;
+        background-color: var(--heading);
       }
 
       &:active {
-        background-color: $headingLigher;
+        background-color: var(--headingLigher);
       }
     }
   }

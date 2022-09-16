@@ -18,7 +18,7 @@
     position: absolute;
     top: 10px;
     max-width: 365px;
-    color: $headingLigher;
+    color: var(--headingLigher);
 
     @media (max-width: 768px) {
       position: static;
@@ -121,7 +121,7 @@
     font-size: 20px;
     line-height: 1.5;
     letter-spacing: 0.05em;
-    color: $heading;
+    color: var(--heading);
   }
 
   &__text {
@@ -137,15 +137,15 @@
     font-size: 14px;
     line-height: 2.14;
     letter-spacing: 0.05em;
-    color: $btn;
+    color: var(--btn);
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: $headingLigher;
+      color: var(--headingLigher);
     }
 
     &:active {
-      color: $heading;
+      color: var(--heading);
     }
   }
 

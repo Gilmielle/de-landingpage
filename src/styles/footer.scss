@@ -1,9 +1,9 @@
 @import 'variabiles.scss';
 
 .footer {
-  background-color: $btn;
+  background-color: var(--btn);
   padding-right: 96px;
-  color: $headingInverted;
+  color: var(--headingInverted);
 
   @media (max-width: 1200px) {
     padding-right: 40px;
@@ -12,7 +12,7 @@
   &__coop,
   &__info,
   &__copyright {
-    background-color: $headingLigher;
+    background-color: var(--headingLigher);
   }
 
   &__coop {
@@ -73,7 +73,7 @@
   &__text {
     grid-area: text;
     margin: 0;
-    color: $textInverted;
+    color: var(--textInverted);
   }
 
   &__btn {
@@ -95,8 +95,8 @@
     max-width: 540px;
     min-height: 300px;
     padding: 56px;
-    color: $heading;
-    background-color: $headingInverted;
+    color: var(--heading);
+    background-color: var(--headingInverted);
     box-shadow: 5px 10px 50px rgba(16, 112, 177, 0.2);
     border-radius: 10px;
 
@@ -171,7 +171,7 @@
 
   &__label {
     line-height: 1.88;
-    color: $inputLabel;
+    color: var(--inputLabel);
   }
 
   &__textarea {
@@ -181,7 +181,6 @@
   }
 
   &__btn {
-    margin-top: 40px;
     margin-top: 40px;
     padding: 1.44em;
     width: 100%;
@@ -210,7 +209,7 @@
     font-size: 28px;
     line-height: 1.64;
     letter-spacing: 0.02em;
-    color: $headingInverted;
+    color: var(--headingInverted);
   }
 }
 
@@ -237,11 +236,11 @@
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: $textInverted;
+      color: var(--textInverted);
     }
 
     &:active {
-      color: $btn;
+      color: var(--btn);
     }
   }
 }
@@ -266,11 +265,11 @@
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: $textInverted;
+      color: var(--textInverted);
     }
 
     &:active {
-      color: $btn;
+      color: var(--btn);
     }
   }
 }

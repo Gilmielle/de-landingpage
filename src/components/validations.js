@@ -1,20 +1,22 @@
 export function getFormData(form) {
-  const data = {};
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
   const inputs = {};
 
-  for (let i = 0; i < form.elements.length; i++) {
-    const input = form.elements[i];
-    if (!input.name) continue;
-    data[input.name] = input.value.trim();
-    inputs[input.name] = input;
-    input.classList.remove('validation-error');
-    input.classList.remove('validation-success');
-  }
+  Array.from(form.elements).forEach((element) => {
+    const input = element;
+    if (input.dataset.validationInput) {
+      inputs[input.dataset.validationInput] = input;
+      input.classList.remove('validation-error');
+      input.classList.remove('validation-success');
+    }
+  });
 
   return [data, inputs];
 }
 
-export function isContactFormValid(data) {
+export function isContactFormValid(inputs) {
   const result = {
     errors: [],
     success: [],
@@ -22,34 +24,34 @@ export function isContactFormValid(data) {
   // eslint-disable-next-line no-useless-escape
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
-  const { contactName, contactEmail } = data;
+  const { contactName, contactEmail } = inputs;
 
-  if (!contactName) {
+  if (!contactName.value) {
     result.errors.push({
-      name: 'contactName',
+      name: contactName.dataset.validationInput,
       message: 'Name is required',
     });
-  } else if (contactName.length < 2) {
+  } else if (contactName.value.length < 2) {
     result.errors.push({
-      name: 'contactName',
+      name: contactName.dataset.validationInput,
       message: 'Should be at least 2 symbols',
     });
   } else {
-    result.success.push('contactName');
+    result.success.push(contactName.dataset.validationInput);
   }
 
-  if (!contactEmail) {
+  if (!contactEmail.value) {
     result.errors.push({
-      name: 'contactEmail',
+      name: contactEmail.dataset.validationInput,
       message: 'E-mail is required',
     });
-  } else if (!emailRegex.test(contactEmail)) {
+  } else if (!emailRegex.test(contactEmail.value)) {
     result.errors.push({
-      name: 'contactEmail',
+      name: contactEmail.dataset.validationInput,
       message: 'Invalid e-mail',
     });
   } else {
-    result.success.push('contactEmail');
+    result.success.push(contactEmail.dataset.validationInput);
   }
 
   return result;

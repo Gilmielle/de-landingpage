@@ -25,7 +25,7 @@ body {
   font-size: 16px;
   line-height: 1.62;
   letter-spacing: 0.05em;
-  color: $text;
+  color: var(--text);
 }
 
 input {
@@ -96,8 +96,8 @@ ul, ol {
   min-width: 220px;
   padding: 1em;
   text-align: center;
-  color: $headingInverted;
-  background-color: $btn;
+  color: var(--headingInverted);
+  background-color: var(--btn);
   border-radius: 10px;
   transition: opacity 0.3s ease-in-out,
     transform 0.3s ease-in-out;
@@ -119,7 +119,7 @@ ul, ol {
 .logo {
   display: flex;
   transition: opacity 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
+    transform 0.3s ease-in-out;
 
   &:hover {
     transform: scale(1.2);
@@ -151,7 +151,6 @@ ul, ol {
     visibility: visible;
 
     & .modal__container {
-      visibility: visible;
       opacity: 1;
       transform: scale(1);
     }
@@ -170,12 +169,10 @@ ul, ol {
 
   &__container {
     margin: 0 auto;
-    visibility: hidden;
     opacity: 0;
 	  transform: scale(0.2);
-    transition-property: transform, opacity, visibility;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
+    transition: opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
   }
 }
 
@@ -192,20 +189,20 @@ ul, ol {
   }
 
   &:hover rect {
-    fill: $inputBorder;
+    fill: var(--inputBorder);
   }
 
   &:active rect {
-    fill: $text;
+    fill: var(--text);
   }
 }
 
 .input {
   width: 100%;
   padding: 1.31em 2.62em;
-  border: 1px solid $inputBorder;
+  border: 1px solid var(--inputBorder);
   border-radius: 10px;
-  color: $heading;
+  color: var(--heading);
   transition: background-color 0.3s ease-in-out,
     border-color 0.3s ease-in-out;
 
@@ -221,7 +218,7 @@ ul, ol {
     font-size: 100%;
     line-height: 1.88;
     letter-spacing: 0.04em;
-    color: $textPlaceholder;
+    color: var(--textPlaceholder);
   }
 }
 
@@ -230,14 +227,14 @@ ul, ol {
 }
 
 .js-form-error {
-  color: $error;
+  color: var(--error);
 }
 
 .validation-error-label {
   position: absolute;
   right: 0;
   top: 0;
-  color: $error;
+  color: var(--error);
 
   @media (max-width: 576px) {
     max-width: 150px;
@@ -246,9 +243,9 @@ ul, ol {
 }
 
 .validation-success {
-  border-color: $success;
+  border-color: var(--success);
 }
 
 .validation-error {
-  border-color: $error;
+  border-color: var(--error);
 }

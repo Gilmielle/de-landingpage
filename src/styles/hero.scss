@@ -6,10 +6,7 @@
   &__wrapper {
     padding-top: 97px;
     padding-bottom: 190px;
-    background: url('../assets/images/hero-bg.svg');
-    background-position: right 3% top 2%;
-    background-repeat: no-repeat;
-    background-size: auto;
+    background: url('../assets/images/hero-bg.svg') right 3% top 2% / auto no-repeat;
 
     @media (max-width: 1300px) {
       background-position: right 3% top 30%;
@@ -39,7 +36,7 @@
     line-height: 1.4;
     font-weight: 600;
     letter-spacing: 0.054em;
-    color: $heading;
+    color: var(--heading);
 
     @media (max-width: 1024px) {
       font-size: 38px;
